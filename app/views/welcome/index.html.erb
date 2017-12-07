@@ -1,0 +1,10 @@
+<h1>Our TODO List Homepage</h1>
+<% if user_signed_in? %>
+  <p>We should probably start adding todo list functionality....now</p>
+<% else %>
+
+  <p>Come build todo lists with us, <%= link_to 'Sign up now!', new_user_registration_path %>
+
+  </p>
+
+<% end %>
