@@ -1,0 +1,44 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header pull-left">
+        <h1 class="article-title">
+          <%= article.title %>
+          <small>
+            by <%= article.user.email %>
+          </small>
+          <small>
+            <%= time_ago_in_words(article.created_at) %>
+            ago
+          </small>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= article.content.html_safe %>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 class="pull-right">
+        <strong>Author:</strong>
+        <%= article.user.email %>
+      </h4>
+    </div>
+  </div>
+</div>

@@ -10,15 +10,38 @@
 
   <body>
 
-    <p id="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <nav class="navbar navbar-light bg-success navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to image_tag('download.png', height: '45'), root_path %>
+        </div>
+        <ul class="nav navbar-nav">
+          <%= render 'nav_link', text: 'Home', path: root_path %>
+          <%= render 'nav_link', text: 'New List', path: new_list_path %>
+          <%= render 'nav_link', text: 'My Lists', path: lists_path %>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
 
-    <% if user_signed_in? %>
-      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-success' %>
-    <% else %>
-      <%= link_to 'Log In', new_user_session_path, class: 'btn btn-success' %>
-    <% end %>
+            <% if user_signed_in? %>
+              <%= render 'nav_link', text: "Signed in as #{current_user.email}", path: edit_user_registration_path %>
+              <%= render 'nav_link', text: 'Log Out', path: destroy_user_session_path, link_options: {method: :delete} %>
+            <% else %>
+              <%= render 'nav_link', text: 'Log In', path: new_user_session_path %>
+              <%= render 'nav_link', text: 'Sign Up', path: new_user_registration_path %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <%= yield %>
+    <div class="container">
+      <p id="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+
+
+
+
   </body>
 </html>

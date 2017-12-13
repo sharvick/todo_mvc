@@ -17,7 +17,8 @@ gem 'jquery-rails'
 # Use Bootstrap Sass as our front-end framework
 gem 'bootstrap-sass', '~> 3.3.7'
 
-
+# Use Tiny MCE Editor for our site 
+gem 'tinymce-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
